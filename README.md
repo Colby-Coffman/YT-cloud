@@ -34,3 +34,7 @@ python main.py [--file=RELATIVE/ABSOLUTE PATH] [--clientcredentials=RELATIVE/ABS
 [--clientsecret=RELATIVE/ABSOLUTE PATH] [--interactive] [--chunksize=INTEGER]
 ```
 Pass a video as an argument using either an absolute or relative path to the current working directory. You can pass a different client credentials or client secret file using --clientcredentials or --clientsecret, but the program will use the files in the source directory by default. Use the --interactive flag to pick a video/secret/credentials file using the PyQt file picker. You can pass an integer to the --chunksize flag to direct the upload rate in bytes. For smaller files you can attempt to upload all at once by passing a -1 to this argument. The maximum chunksize google allows is 5 MB. The program defaults to 4 MiB.
+
+If the access type is changed in main.py, YouTube will still restrict videos uploaded using this script as private. In order to make this script upload videos as public, you need to verify with google.
+
+Additionally, you are restricted to 6 uploads per day. more can be obtained once you are certified.
