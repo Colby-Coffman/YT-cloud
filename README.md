@@ -37,4 +37,4 @@ Pass a video as an argument using either an absolute or relative path to the cur
 
 If the access type is changed in main.py, YouTube will still restrict videos uploaded using this script as private. In order to make this script upload videos as public, you need to verify with google.
 
-Additionally, you are restricted to 6 uploads per day. more can be obtained once you are certified.
+Additionally, you are restricted to 6 uploads per day. More can be obtained once you are verified.
