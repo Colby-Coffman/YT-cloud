@@ -88,4 +88,3 @@ if __name__ == "__main__":
             if response:
                 print("Video uploaded: ", VIDEO_FORMAT.format(response["id"]))
                 break
-        #print("Upload stage reached")
