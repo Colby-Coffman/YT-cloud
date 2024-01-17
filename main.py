@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import googleapiclient.discovery as discovery
 import googleapiclient.http
 import auth
@@ -79,7 +81,7 @@ if __name__ == "__main__":
         }
         request_parts = "snippet,status"
         video = googleapiclient.http.MediaFileUpload(options.file,
-                                                    chunksize=4*1024*1024, resumable=True,
+                                                    chunksize=options.chunksize, resumable=True,
                                                     mimetype="application/octet-stream")
         print(options.file)
         request = youtube.videos().insert(part=request_parts, body=request_body, media_body=video)

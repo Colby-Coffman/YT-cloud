@@ -2,7 +2,7 @@ import google_auth_oauthlib.flow as oauthflow
 import os
 import google.oauth2.credentials as oauthcred
 from google.auth.transport.requests import Request
-#from google.auth.credentials import TokenState
+from google.auth.exceptions import RefreshError
 
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 CLIENT_SECRETS_FILE = None
@@ -21,7 +21,10 @@ def get_credentials(credentials_file):
         if not credentials.valid:
             if not credentials.token:
                 return _credentials_flow(credentials_file)
-            credentials.refresh(Request())
+            try:
+                credentials.refresh(Request())
+            except RefreshError:
+                return _credentials_flow(credentials_file)
             with open(credentials_file, "w") as file:
                 file.write(credentials.to_json())
             return credentials
